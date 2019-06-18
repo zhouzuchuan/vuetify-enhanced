@@ -1,0 +1,207 @@
+{
+    "name": "vuetify-enhanced",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "build": "npm run lint && npm run build:module && npm run build:browser",
+        "build:module": "bili ./src/index.js --format cjs,es --no-js",
+        "build:browser": "bili ./src/index.js --format umd,umd-min --js buble",
+        "lint:css": "stylelint 'src/**/*.vue' --fix",
+        "test:unit": "vue-cli-service test:unit",
+        "storybook": "start-storybook -p 6006",
+        "build-storybook": "build-storybook"
+    },
+    "dependencies": {
+        "api-manage": "^1.0.0-alpha.2",
+        "core-js": "^2.6.5",
+        "css.preset": "^0.0.4",
+        "element-ui": "^2.9.1",
+        "file-saver": "^2.0.2",
+        "js-cookie": "^2.2.0",
+        "jszip": "^3.2.1",
+        "lodash": "^4.17.11",
+        "moment": "^2.24.0",
+        "normalize.css": "^8.0.1",
+        "nprogress": "^0.2.0",
+        "vue": "^2.6.10",
+        "vue-echarts": "^4.0.3",
+        "vue-i18n": "^8.11.2",
+        "vue-router": "^3.0.6",
+        "vue-rx": "^6.2.0",
+        "vuex": "^3.1.1",
+        "vuex-persistedstate": "^2.5.4"
+    },
+    "devDependencies": {
+        "@storybook/addon-a11y": "^5.1.8",
+        "@storybook/addon-actions": "^5.1.8",
+        "@storybook/addon-console": "^1.1.0",
+        "@storybook/addon-info": "^5.1.8",
+        "@storybook/addon-knobs": "^5.1.8",
+        "@storybook/addon-links": "^5.1.8",
+        "@storybook/addon-storysource": "^5.1.8",
+        "@storybook/addon-viewport": "^5.1.8",
+        "@storybook/addons": "^5.1.8",
+        "@storybook/theming": "^5.1.8",
+        "@storybook/vue": "^5.1.8",
+        "@vue/cli-plugin-babel": "^3.8.0",
+        "@vue/cli-plugin-eslint": "^3.8.0",
+        "@vue/cli-plugin-unit-jest": "^3.8.0",
+        "@vue/cli-service": "^3.8.0",
+        "@vue/test-utils": "^1.0.0-beta.29",
+        "babel-eslint": "^10.0.1",
+        "babel-loader": "^8.0.6",
+        "babel-plugin-component": "^1.1.1",
+        "bili": "3.4.2",
+        "data-mock": "^1.3.2",
+        "eslint": "^5.16.0",
+        "eslint-plugin-vue": "^5.0.0",
+        "less": "^3.9.0",
+        "less-loader": "^5.0.0",
+        "rollup-plugin-vue": "^5.0.0",
+        "sass": "^1.21.0",
+        "sass-loader": "^7.1.0",
+        "storybook-addon-vue-info": "^1.2.1",
+        "storybook-readme": "^5.0.3",
+        "stylelint": "^10.1.0",
+        "stylelint-config-recess-order": "^2.0.2",
+        "stylelint-config-standard": "^18.3.0",
+        "vue-loader": "^15.7.0",
+        "vue-template-compiler": "^2.6.10"
+    },
+    "eslintConfig": {
+        "root": true,
+        "env": {
+            "node": true,
+            "browser": true
+        },
+        "extends": [
+            "plugin:vue/essential",
+            "eslint:recommended"
+        ],
+        "rules": {
+            "indent": [
+                0,
+                4
+            ],
+            "quotes": [
+                2,
+                "single"
+            ],
+            "linebreak-style": [
+                2,
+                "unix"
+            ],
+            "semi": [
+                2,
+                "never"
+            ],
+            "no-cond-assign": 2,
+            "no-constant-condition": 2,
+            "no-dupe-args": 2,
+            "no-dupe-keys": 2,
+            "no-duplicate-case": 2,
+            "no-console": 1,
+            "no-debugger": 1,
+            "no-var": 1,
+            "no-trailing-spaces": 0,
+            "eol-last": 0,
+            "no-unused-vars": 2,
+            "no-unused-expressions": 0,
+            "no-underscore-dangle": 0,
+            "no-alert": 2,
+            "no-lone-blocks": 0,
+            "jsx-quotes": 0,
+            "vue/script-indent": [
+                2,
+                4
+            ],
+            "vue/html-indent": [
+                2,
+                4
+            ],
+            "vue/html-self-closing": 2,
+            "vue/mustache-interpolation-spacing": [
+                "error",
+                "always"
+            ],
+            "vue/no-multi-spaces": [
+                "error",
+                {
+                    "ignoreProperties": false
+                }
+            ],
+            "vue/no-spaces-around-equal-signs-in-attribute": [
+                "error"
+            ],
+            "vue/no-template-shadow": 2,
+            "vue/no-restricted-syntax": 2,
+            "vue/require-direct-export": 2,
+            "vue/no-dupe-keys": 2,
+            "vue/no-duplicate-attributes": 2,
+            "vue/no-reserved-keys": 2,
+            "vue/no-shared-component-data": 2,
+            "vue/no-textarea-mustache": 2,
+            "vue/no-unused-vars": 2,
+            "vue/return-in-computed-property": [
+                2,
+                {
+                    "treatUndefinedAsUnspecified": true
+                }
+            ],
+            "vue/use-v-on-exact": 2,
+            "vue/html-end-tags": 2,
+            "vue/singleline-html-element-content-newline": [
+                "error",
+                {
+                    "ignoreWhenNoAttributes": true,
+                    "ignoreWhenEmpty": true,
+                    "ignores": [
+                        "pre",
+                        "textarea"
+                    ]
+                }
+            ],
+            "vue/multiline-html-element-content-newline": [
+                "error",
+                {
+                    "ignoreWhenEmpty": true,
+                    "ignores": [
+                        "pre",
+                        "textarea"
+                    ],
+                    "allowEmptyLines": false
+                }
+            ],
+            "vue/attributes-order": [
+                "error",
+                {
+                    "order": [
+                        "DEFINITION",
+                        "LIST_RENDERING",
+                        "CONDITIONALS",
+                        "RENDER_MODIFIERS",
+                        "GLOBAL",
+                        "UNIQUE",
+                        "TWO_WAY_BINDING",
+                        "OTHER_DIRECTIVES",
+                        "OTHER_ATTR",
+                        "EVENTS",
+                        "CONTENT"
+                    ]
+                }
+            ]
+        },
+        "parserOptions": {
+            "parser": "babel-eslint"
+        }
+    },
+    "postcss": {
+        "plugins": {
+            "autoprefixer": {}
+        }
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions"
+    ]
+}
