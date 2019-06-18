@@ -1,5 +1,5 @@
 <template>
-    <v-snackbar v-model="open" v-bind="options">
+    <v-snackbar v-model="open" :right="right" :left="left" :top="top" :bottom="bottom" :color="color">
         {{ message }}
     </v-snackbar>
 </template>
@@ -12,7 +12,11 @@ export default {
         title: String,
         message: String,
         type: String,
-        options: Object,
+        color: String,
+        right: Boolean,
+        top: Boolean,
+        bottom: Boolean,
+        left: Boolean,
     },
     data() {
         return {
