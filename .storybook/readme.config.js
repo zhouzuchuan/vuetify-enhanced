@@ -2,10 +2,10 @@ import { configureReadme, addFooter, addHeader } from 'storybook-readme'
 
 configureReadme({
     codeTheme: 'github',
-    header: `
-### Vue boilerplate
----
-`,
+    // header: `
+    //     ### Vuetify Enhanced
+    //     ---
+    // `,
 
     HeaderPreview: {
         data() {
@@ -28,7 +28,7 @@ configureReadme({
                     alignItems: 'center',
                     justifyContent: 'center',
                     margin: '32px 0',
-                    border: '2px dashed #eee',
+                    // border: '2px dashed #eee',
                     padding: '16px',
                 },
             }

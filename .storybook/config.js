@@ -10,9 +10,9 @@ import './readme.config'
 
 const basicTheme = create({
     base: 'light',
-    brandTitle: 'README addon',
-    brandUrl: 'https://github.com/tuchk4/storybook-readme',
-    brandImage: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+    brandTitle: 'Vuetify Enhanced',
+    // brandUrl: 'https://github.com/tuchk4/storybook-readme',
+    // brandImage: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
 })
 
 addParameters({

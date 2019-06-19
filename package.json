@@ -1,36 +1,21 @@
 {
     "name": "vuetify-enhanced",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "private": false,
     "main": "lib/vuetify-enhanced.cjs.js",
     "scripts": {
-        "build": "npm run lint && npm run build:module && npm run build:browser",
+        "build": "npm run lint && npm run build:module && npm run build-storybook",
         "build:module": "bili ./src/index.js --format cjs,es --no-js",
-        "build:browser": "bili ./src/index.js --format umd,umd-min --js buble",
-        "lint:css": "stylelint 'src/**/*.vue' --fix",
+        "lint": "eslint --ext js --ext vue src",
+        "lint:fix": "npm run lint -- --fix",
         "test:unit": "vue-cli-service test:unit",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook"
     },
     "dependencies": {
-        "api-manage": "^1.0.0-alpha.2",
-        "core-js": "^2.6.5",
-        "css.preset": "^0.0.4",
-        "element-ui": "^2.9.1",
-        "file-saver": "^2.0.2",
-        "js-cookie": "^2.2.0",
-        "jszip": "^3.2.1",
-        "lodash": "^4.17.11",
-        "moment": "^2.24.0",
-        "normalize.css": "^8.0.1",
-        "nprogress": "^0.2.0",
+        "core-js": "2.6.5",
         "vue": "^2.6.10",
-        "vue-echarts": "^4.0.3",
-        "vue-i18n": "^8.11.2",
-        "vue-router": "^3.0.6",
-        "vue-rx": "^6.2.0",
-        "vuex": "^3.1.1",
-        "vuex-persistedstate": "^2.5.4"
+        "vuetify": "^2.0.0-beta.2"
     },
     "devDependencies": {
         "@storybook/addon-a11y": "^5.1.8",
@@ -199,6 +184,11 @@
     "postcss": {
         "plugins": {
             "autoprefixer": {}
+        }
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run build"
         }
     },
     "browserslist": [

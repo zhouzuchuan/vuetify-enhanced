@@ -1,43 +1,68 @@
+import Vue from 'vue'
 import Toast from './components/Toast.vue'
-import Confirm from './components/Confirm.vue'
+import VeConfirm from './components/Confirm.vue'
 
-import { initGlobal } from './utils'
+const components = {
+    VeConfirm,
+}
 
-const components = {}
+export const initGlobal = (Component, options = {}, childFn = {}) => {
+    const property = (options && options.property) || `$${Component.name}`
+
+    const container = (options && options.container) || document.body
+
+    const vuetify = (options && options.vuetify) || {}
+
+    Vue.prototype[property] = (message, options = {}) => {
+        return new Promise(resolve => {
+            const cmp = new Vue(
+                Object.assign({}, Component, {
+                    vuetify,
+                    propsData: Object.assign({}, { message, ...options }),
+                    destroyed: () => {
+                        container.removeChild(cmp.$el)
+                        resolve(cmp.value)
+                    },
+                }),
+            )
+            container.appendChild(cmp.$mount().$el)
+        })
+    }
+
+    Object.entries(childFn).forEach(([name, props]) => {
+        Vue.prototype[property][name] = (message, options) => {
+            Vue.prototype[property](message, { ...options, ...props })
+        }
+    })
+}
 
 const install = function(Vue, opts = {}) {
     Object.values(components).forEach(component => {
         Vue.component(component.name, component)
     })
 
-    // Vue.use(InfiniteScroll)
-    // Vue.use(Loading.directive)
+    initGlobal(
+        Toast,
+        {
+            property: '$veToast',
+            ...opts,
+        },
+        {
+            error: { color: 'error' },
+            success: { color: 'primary' },
+        },
+    )
 
-    // Vue.prototype.$ELEMENT = {
-    //     size: opts.size || '',
-    //     zIndex: opts.zIndex || 2000,
-    // }
-
-    initGlobal(Toast, {
-        property: '$veToast',
-        ...opts,
-    })
-    initGlobal(Confirm, {
+    initGlobal(VeConfirm, {
         property: '$veConfirm',
         ...opts,
     })
-
-    // Vue.prototype.$loading = Loading.service
-    // Vue.prototype.$msgbox = MessageBox
-    // Vue.prototype.$alert = MessageBox.alert
-    // Vue.prototype.$confirm = MessageBox.confirm
-    // Vue.prototype.$prompt = MessageBox.prompt
-    // Vue.prototype.$notify = Notification
-    // Vue.prototype.$message = Message
 }
 
+export { VeConfirm }
+
 export default {
-    version: '0.0.1',
+    version: require('../package.json').default.version,
     install,
     ...components,
 }

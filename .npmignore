@@ -60,12 +60,11 @@ typings/
 rollup.config.js
 .gitignore
 *.lock
-src/*
-example/*
+src/
 
-.storybook/*
-stories/*
-tests/*
+.storybook/
+stories/
+tests/
 .editorconfig
 .stylelintrc.json
 babel.config.js
