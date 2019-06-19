@@ -65,6 +65,7 @@ src/
 .storybook/
 stories/
 tests/
+docs/
 .editorconfig
 .stylelintrc.json
 babel.config.js
