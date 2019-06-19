@@ -10,7 +10,8 @@
         "lint:fix": "npm run lint -- --fix",
         "test:unit": "vue-cli-service test:unit",
         "storybook": "start-storybook -p 6006",
-        "build-storybook": "build-storybook"
+        "build-storybook": "build-storybook",
+        "prepublish": "npm run lint && npm run build:module"
     },
     "dependencies": {
         "core-js": "2.6.5",
@@ -184,11 +185,6 @@
     "postcss": {
         "plugins": {
             "autoprefixer": {}
-        }
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "npm run build"
         }
     },
     "browserslist": [
