@@ -62,7 +62,7 @@ const install = function(Vue, opts = {}) {
 export { VeConfirm }
 
 export default {
-    version: require('../package.json').default.version,
+    version: '0.0.5',
     install,
     ...components,
 }
