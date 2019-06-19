@@ -118,7 +118,7 @@ export default {
         }
     },
     mounted() {
-        // this.open = true
+        this.open = true
     },
     watch: {
         open(nv) {

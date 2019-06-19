@@ -42,11 +42,7 @@ storiesOf('Confirm', module).add(
             `,
         methods: {
             handleClick() {
-                this.$veConfirm('sssss', {
-                    left: true,
-                    color: 'error',
-                    top: true,
-                })
+                this.$veConfirm('我是个confirm')
             },
         },
     }),
@@ -65,7 +61,7 @@ storiesOf('Confirm', module).add(
                         })
                     },
                 }
-                
+
             \`\`\`
 
             `,

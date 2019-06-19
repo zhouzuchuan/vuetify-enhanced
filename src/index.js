@@ -53,16 +53,20 @@ const install = function(Vue, opts = {}) {
         },
     )
 
-    initGlobal(VeConfirm, {
-        property: '$veConfirm',
-        ...opts,
-    })
+    initGlobal(
+        VeConfirm,
+        {
+            property: '$veConfirm',
+            ...opts,
+        },
+        {},
+    )
 }
 
 export { VeConfirm }
 
 export default {
-    version: '0.0.5',
+    version: '0.0.6',
     install,
     ...components,
 }
