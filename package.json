@@ -1,8 +1,8 @@
 {
     "name": "vuetify-enhanced",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "private": false,
-    "main": "lib/vuetify-enhanced.cjs.js",
+    "main": "dist/vuetify-enhanced.cjs.js",
     "scripts": {
         "build": "npm run lint && npm run build:module && npm run build-storybook",
         "build:module": "bili ./src/index.js --format cjs,es --no-js",
