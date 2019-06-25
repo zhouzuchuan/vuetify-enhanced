@@ -29,7 +29,10 @@
 
 const isPromise = (obj) => !!obj && (typeof obj === 'object' || typeof obj === 'function') && typeof obj.then === 'function'
 
-
+/**
+ * 您好，世界！
+ * @displayName Confirm
+ * */
 export default {
     name: 've-confirm',
     props: {
@@ -155,3 +158,5 @@ export default {
     }
 }
 </script>
+
+ 

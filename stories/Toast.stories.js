@@ -1,9 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope, react/no-this-in-sfc */
 
 import { storiesOf } from '@storybook/vue'
-import { action } from '@storybook/addon-actions'
-
-import { text, boolean } from '@storybook/addon-knobs'
 
 import Vue from 'vue'
 import Vuetify from 'vuetify'

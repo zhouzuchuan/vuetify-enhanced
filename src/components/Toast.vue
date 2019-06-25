@@ -6,6 +6,10 @@
 
 <script>  
 
+/**
+ * 
+ * @displayName Toast 
+ * */
 export default {
     name: 'toast',
     props: {
@@ -80,3 +84,8 @@ export default {
 }
 
 </script>
+
+
+<docs>
+
+</docs>

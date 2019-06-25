@@ -2,8 +2,6 @@
 
 import { storiesOf } from '@storybook/vue'
 
-import { text, boolean } from '@storybook/addon-knobs'
-
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
