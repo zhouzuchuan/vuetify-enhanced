@@ -2,5 +2,53 @@
     background: transparent !important;
     &--wrap {
         min-height: auto;
+        & > .v-card {
+            padding: 15px;
+            border-bottom-right-radius: inherit;
+            border-bottom-left-radius: inherit;
+            box-shadow: none;
+        }
+    }
+}
+.global-main {
+    button[name='rsg-code-editor'] {
+        height: 50px;
+        text-indent: -9999px;
+        border: 0;
+        outline: 0;
+        font-size: 0;
+        padding: 0 0 0;
+        color: inherit;
+        padding-top: 4px;
+
+        &:focus,
+        &:active,
+        &.visited {
+            outline: 0;
+        }
+
+        &:hover {
+            color: #e90;
+        }
+
+        &::before {
+            display: inline-block;
+            font: normal normal normal 24px/1 'Material Design Icons';
+            font-size: inherit;
+            text-rendering: auto;
+            line-height: inherit;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            content: '\F174';
+            display: block;
+            text-indent: 0;
+            font-size: 20px;
+        }
+
+        &[class*='rsg--isActive'] {
+            &::before {
+                content: '\F693';
+            }
+        }
     }
 }

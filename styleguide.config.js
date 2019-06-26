@@ -4,7 +4,6 @@ const pkg = require('./package.json')
 module.exports = {
     title: pkg.name,
     version: pkg.version,
-    // components: 'src/components/**/**/[A-Z]*.{vue,jsx}',
     defaultExample: true,
     minimize: false,
     pagePerSection: true,
@@ -27,11 +26,11 @@ module.exports = {
     renderRootJsx: path.join(__dirname, 'styleguide/root.js'),
     sections: [
         {
-            name: 'Documentation',
+            name: '快速上手',
             content: 'docments/introduce.md',
         },
         {
-            name: 'Component',
+            name: 'Components',
             content: 'docments/component.md',
             components: 'src/components/**/[A-Z]*.vue',
             sectionDepth: 1,
@@ -39,9 +38,9 @@ module.exports = {
     ],
 
     styleguideComponents: {
-        LogoRenderer: path.join(__dirname, 'styleguide/components/Logo'),
+        // LogoRenderer: path.join(__dirname, 'styleguide/components/Logo'),
         StyleGuideRenderer: path.join(__dirname, 'styleguide/components/StyleGuideRenderer'),
-        SectionsRenderer: path.join(__dirname, 'styleguide/components/SectionsRenderer'),
+        // SectionsRenderer: path.join(__dirname, 'styleguide/components/SectionsRenderer'),
     },
     // webpackConfig: {
     //   // custom config goes here

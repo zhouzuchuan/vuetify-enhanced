@@ -1,119 +1,126 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Logo from 'rsg-components/Logo'
-import Markdown from 'rsg-components/Markdown'
-import Styled from 'rsg-components/Styled'
 import styled from 'styled-components'
 
-const xsmall = '@media (max-width: 600px)'
-
-const styles = ({ font, base, light, baseBackground, mq }) => ({
-    root: {
-        color: base,
-        backgroundColor: baseBackground,
-    },
-    header: {
-        color: '#41b883',
-        backgroundColor: 'white',
-        borderBottom: '1px solid #41b883',
-    },
-    bar: {
-        display: 'flex',
-        alignItems: 'center',
-        [xsmall]: {
-            flexDirection: 'column',
-            alignItems: 'center',
-        },
-    },
-    nav: {
-        marginLeft: 'auto',
-        marginRight: '-0.5em',
-        [xsmall]: {
-            margin: [[10, 0, 0]],
-        },
-    },
-    headerLink: {
-        '&, &:link, &:visited': {
-            marginLeft: '0.5em',
-            marginRight: '0.5em',
-            fontFamily: font,
-            color: '#41b883',
-        },
-        '&:hover, &:active': {
-            color: '#35495e',
-            cursor: 'pointer',
-        },
-    },
-    content: {
-        // maxWidth: 1000,
-        padding: [[15, 30]],
-        margin: [[0, 'auto']],
-        [mq.small]: {
-            padding: 15,
-        },
-        display: 'block',
-    },
-    components: {
-        overflow: 'auto', // To prevent the pane from growing out of the screen
-    },
-    footer: {
-        display: 'block',
-        color: light,
-        fontFamily: font,
-        fontSize: 12,
-    },
-})
-
-export function StyleGuideRenderer({ classes, title, homepageUrl, children, toc }) {
+export function StyleGuideRenderer({ title, children, toc }) {
+    const { pathname, hash } = window.location
     return (
-        <div className={classes.root}>
-            <header className={classes.header}>
-                <div className={classes.content}>
-                    <div className={classes.bar}>
-                        <Logo>{title}</Logo>
-                        {/* <nav className={classes.nav}>
-                            <a
-                                className={classes.headerLink}
-                                href="https://github.com/vue-styleguidist/vue-styleguidist/tree/master/docs"
-                            >
-                                Docs
-                            </a>
-                            <a
-                                className={classes.headerLink}
-                                href="https://github.com/vue-styleguidist/vue-styleguidist"
-                            >
-                                GitHub
-                            </a>
-                        </nav> */}
-                    </div>
-                </div>
-            </header>
-            <Main>
+        <Wrap>
+            <Header className="flex-box">
+                <div className="item  logo">{title}</div>
+                <nav>
+                    <a href="https://github.com/zhouzuchuan/vuetify-enhanced">GitHub</a>
+                </nav>
+            </Header>
+            <Main className="global-main">
                 <div className="flex-box">
-                    <div>{toc}</div>
-                    <div>
+                    <Silde className="pr20" currPath={pathname + hash}>
+                        {toc}
+                    </Silde>
+                    <div className="item">
                         {children}
-                        <footer className={classes.footer}>
-                            <Markdown
-                                text={`willcome with [Vuetify Enhanced](${'https://github.com/zhouzuchuan/vuetify-enhanced'}) ❤️`}
-                            />
+                        <footer>
+                            welcome with <a href="https://github.com/zhouzuchuan/vuetify-enhanced">Vuetify Enhanced</a>{' '}
+                            ❤️
                         </footer>
                     </div>
                 </div>
             </Main>
-        </div>
+        </Wrap>
     )
 }
 
 const Main = styled.div`
-    padding: 10px 0;
+    padding: 10px 20px;
+
+    [data-testid*='-example-'] {
+        & > [data-preview] {
+            position: relative;
+            padding: 0;
+            padding-bottom: 50px;
+            & > :first-child {
+                border-bottom: 1px dashed #e8e8e8;
+            }
+        }
+
+        & > [class^='rsg--controls'] {
+            position: relative;
+            width: 60px;
+            line-height: 50px;
+            height: 50px;
+            margin: -51px auto 0 !important;
+            color: rgba(118, 118, 118, 1);
+            z-index: 1;
+
+            & > :last-child {
+                display: none;
+            }
+        }
+    }
+`
+
+const Header = styled.div`
+    position: sticky;
+    top: 0;
+    color: #1673b1;
+    background: #fff;
+    border-bottom: 1px solid #1673b1;
+    z-index: 3;
+    line-height: 60px;
+    padding: 0 30px;
+
+    .logo {
+        font-size: 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    a {
+        color: #bbb;
+        margin: 0 10px;
+        text-decoration: none;
+
+        &:hover {
+            color: #1673b1;
+            cursor: pointer;
+        }
+    }
+`
+
+const Wrap = styled.div`
+    position: relative;
+    footer {
+        font-size: 12px;
+    }
+`
+
+const Silde = styled.div`
+    width: 230px;
+    nav {
+        position: fixed;
+
+        li {
+            a {
+                color: #666 !important;
+
+                &:link,
+                &.visited {
+                    color: inherit !important;
+                }
+            }
+            ${({ currPath }) => `
+                a[href='${currPath}']  {
+                    color: #e90  !important;
+                }
+            `}
+        }
+    }
 `
 
 StyleGuideRenderer.propTypes = {
-    classes: PropTypes.object.isRequired,
     title: PropTypes.string.isRequired,
     homepageUrl: PropTypes.string.isRequired,
     children: PropTypes.node.isRequired,
 }
 
-export default Styled(styles)(StyleGuideRenderer)
+export default StyleGuideRenderer
